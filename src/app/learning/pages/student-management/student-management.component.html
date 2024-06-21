@@ -1,0 +1,41 @@
+<!-- Student catalogue -->
+<div class="table-wrapper">
+  <h1>Students</h1>
+
+  <!--Add/Edit Form-->
+  <app-student-create-and-edit (editCanceled)="onCancelEdit()"
+                               (studentAdded)="onStudentAdded($event)"
+                               (studentUpdated)="onStudentUpdated($event)"
+                               [editMode] = "isEditMode"
+                               [student]="studentData"/>
+  <!-- Data Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> #Id</th>
+      <td *matCellDef="let element" mat-cell>{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Name</th>
+      <td *matCellDef="let element" mat-cell>{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="age">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Age</th>
+      <td *matCellDef="let element" mat-cell>{{ element.age }}</td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Address</th>
+      <td *matCellDef="let element" mat-cell>{{ element.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th *matHeaderCellDef mat-header-cell> Actions</th>
+      <td *matCellDef="let element" mat-cell>
+        <a (click)="onEditItem(element)" href="javascript:void(0)"><mat-icon>edit</mat-icon></a>
+        <a (click)="onDeleteItem(element)" href="javascript:void(0)"><mat-icon>delete</mat-icon></a>
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns:displayedColumns" [ngClass]="{'editable-row': studentData.id === row.id }" mat-row></tr>
+  </table>
+  <!-- Paginator child component-->
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

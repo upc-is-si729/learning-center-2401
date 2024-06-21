@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Learning Center</span>
+  <span class="mat-spacer"></span>
+  @for(option of options; track option.title) {
+    <a mat-button [routerLink]="option.path">{{ option.title }}</a>
+  }
+  | <app-authentication-section/>
+</mat-toolbar>
+<router-outlet/>
