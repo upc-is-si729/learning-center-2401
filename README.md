@@ -1,6 +1,37 @@
-# DaosLearningCenter
+# Learning Center Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+## Summary
+Learning Center Application, illustrating CRUD behavior and in-app navigation, with Angular Material and Angular Router. It also uses a JSON Server Fake API.
+
+## Features
+- Material Design
+- JSON Server Fake API
+- CRUD operations
+- In-app navigation
+
+## Dependencies
+- Angular Material
+- Angular Router
+- JSON Server
+- HttpClient
+- Reactive Forms
+
+
+## Fake API start
+Run the following commands to start the fake API server:
+```bash
+cd server
+sh start.sh
+
+```
+
+## Identity and Access Management Features
+In  this version, the application includes support for user identity and access management. The following features are available:
+- Sign Up
+- Sign In
+- Sign Out
+
+In order to use these features, you need to replace the server base path to use the Identity and Access Management Server implemented with Spring Boot. 
 
 ## Development server
 
